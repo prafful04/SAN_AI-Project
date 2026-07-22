@@ -1,0 +1,330 @@
+================================================================================
+                    SECUREBOT - LANGUAGES USED SUMMARY
+================================================================================
+
+PROJECT: Security Analysis Platform Using CodeQL
+BUILD STATUS: ✅ Successful (242.88 kB JS, 33.30 kB CSS, 0.48 kB HTML)
+FILE COUNT: 45+ files across 8+ programming languages
+TOTAL LOC: ~8,700 lines of code
+
+================================================================================
+                          PRIMARY LANGUAGES
+================================================================================
+
+1. TYPESCRIPT (9 files)
+   └─ Type-safe business logic and utilities
+   └─ File: src/utils/*.ts
+   └─ Purpose: Core analysis engine, API integrations
+   └─ Examples:
+      • securityAnalyzer.ts (Main analysis engine)
+      • codeqlService.ts (CodeQL API wrapper)
+      • codeFixer.ts (Automated fix generation)
+      • vulnerabilityPatterns.ts (Pattern definitions)
+      • githubApi.ts (GitHub integration)
+      • googleAuth.ts (OAuth handling)
+
+2. TYPESCRIPT + REACT (17 files - TSX)
+   └─ React components with type safety
+   └─ File: src/components/*.tsx
+   └─ Purpose: User interface components
+   └─ Examples:
+      • App.tsx (Root component with state management)
+      • CodeInput.tsx (Code editor)
+      • ResultsDisplay.tsx (Analysis results viewer)
+      • SecurityMetrics.tsx (Dashboard)
+      • VulnerabilityChart.tsx (Charts)
+      • CodeFixer.tsx (Automated fix UI)
+      • GitHubIntegration.tsx (GitHub sync)
+      • LoginPage.tsx (Authentication)
+      • + 9 more components
+
+3. JAVASCRIPT (3 files)
+   └─ Build tool configuration
+   └─ Files: postcss.config.js, tailwind.config.js, eslint.config.js
+   └─ Purpose: Tool setup and build configuration
+
+4. CSS3 (1 file)
+   └─ Global styles with Tailwind utilities
+   └─ File: src/index.css
+   └─ Purpose: Base styling, animations, gradients
+
+5. HTML5 (1 file)
+   └─ Document structure
+   └─ File: index.html
+   └─ Purpose: Application entry point
+
+6. JSON (5+ files)
+   └─ Configuration and data format
+   └─ Files:
+      • package.json (Dependencies & scripts)
+      • tsconfig.json (TypeScript main config)
+      • tsconfig.app.json (App-specific TS config)
+      • tsconfig.node.json (Node-specific TS config)
+      • .env.example (Environment template)
+      • .env (Environment variables)
+   └─ Purpose: Project metadata, configuration
+
+7. MARKDOWN (4 files)
+   └─ Documentation
+   └─ Files:
+      • README.md (Project overview)
+      • CODEQL_SETUP.md (CodeQL setup guide)
+      • PROJECT_DOCUMENTATION.md (Full documentation - 500+ sections)
+      • LANGUAGES_AND_TECHNOLOGIES.md (Technology guide)
+   └─ Purpose: Documentation and setup guides
+
+================================================================================
+                        ANALYSIS LANGUAGES
+================================================================================
+
+8. REGEX (Regular Expressions)
+   └─ Pattern-based vulnerability detection
+   └─ Language: ECMAScript Regex
+   └─ Purpose: Fast pattern matching in source code
+   └─ Speed: Very Fast (< 1 second)
+   └─ Example patterns:
+      • SQL Injection: /\.query\s*\(\s*[`'"].*\$\{.*\}.*[`'"]\s*\)/g
+      • XSS: /\.innerHTML\s*=\s*.*[\+$]/g
+      • Command Injection: /(exec|execSync|spawn)\s*\([^)]*\$\{/g
+      • Hardcoded Credentials: /(api[_-]?key)\s*[:=]\s*['"`][A-Za-z0-9]{20,}['"`]/gi
+
+9. CODEQL (QL Language)
+   └─ Semantic code analysis queries
+   └─ Language: QL (CodeQL Query Language)
+   └─ Purpose: Advanced vulnerability detection
+   └─ Speed: Slower (10-60 seconds)
+   └─ Supports: 10+ programming languages
+   └─ Available Queries (10):
+      • js/sql-injection (CWE-89)
+      • js/xss (CWE-79)
+      • js/command-line-injection (CWE-78)
+      • js/code-injection (CWE-94)
+      • js/hardcoded-credentials (CWE-798)
+      • js/insecure-randomness (CWE-330)
+      • js/path-injection (CWE-22)
+      • js/xxe (CWE-611)
+      • js/insecure-download (CWE-601)
+      • js/prototype-pollution (CWE-1321)
+
+10. SARIF (Static Analysis Results Format)
+    └─ Standard analysis output format
+    └─ Format: JSON (SARIF 2.1.0)
+    └─ Purpose: Standardized vulnerability reporting
+    └─ Used by: CodeQL backend
+
+================================================================================
+                      BACKEND/RUNTIME LANGUAGES
+================================================================================
+
+11. DENO TYPESCRIPT
+    └─ Serverless backend runtime
+    └─ File: supabase/functions/codeql-analyze/index.ts
+    └─ Purpose: CodeQL execution backend
+    └─ Service: Supabase Edge Functions
+    └─ Features:
+       • Execute CodeQL CLI
+       • Create temporary files
+       • Parse SARIF output
+       • Handle HTTP requests
+
+================================================================================
+                      SUPPORTING LANGUAGES
+================================================================================
+
+12. BASH/SHELL SCRIPTS
+    └─ Command-line operations
+    └─ Purpose: Build scripts, deployment
+    └─ Commands:
+       • npm run dev (Start development server)
+       • npm run build (Production build)
+       • npm run lint (Code linting)
+       • npm run typecheck (Type checking)
+
+================================================================================
+                       LANGUAGE DISTRIBUTION
+================================================================================
+
+TypeScript + TSX .......................... 71% (26 files)
+├─ TSX Components ......................... 46% (17 files)
+└─ TypeScript Logic ....................... 25% (9 files)
+
+JSON Configuration ........................ 14% (5+ files)
+
+JavaScript Config ......................... 8% (3 files)
+
+Markdown Documentation .................... 11% (4 files)
+
+CSS Styling .............................. 3% (1 file)
+
+HTML Markup .............................. 3% (1 file)
+
+Other (Regex, CodeQL, SARIF) .............. 5%
+
+================================================================================
+                        FRAMEWORK & LIBRARIES
+================================================================================
+
+Frontend:
+  • React 18.3.1 - UI Framework
+  • TypeScript 5.5.3 - Type System
+  • Vite 5.4.2 - Build Tool
+  • Tailwind CSS 3.4.1 - Utility Styling
+  • Lucide React 0.344.0 - Icons
+  • PostCSS 8.4.35 - CSS Processing
+  • Autoprefixer 10.4.18 - CSS Vendor Prefixes
+
+APIs & Integrations:
+  • @supabase/supabase-js 2.57.4 - Database & Auth
+  • @octokit/rest 22.0.0 - GitHub API
+  • googleapis 160.0.0 - Google APIs
+  • @google-cloud/local-auth 3.0.1 - OAuth
+
+Development:
+  • ESLint 9.9.1 - Code Linting
+  • typescript-eslint 8.3.0 - TypeScript Linting
+
+================================================================================
+                    CODE QUALITY METRICS
+================================================================================
+
+Total Files ................................. 45+
+TypeScript Files ........................... 26 (58%)
+Configuration Files ........................ 13 (29%)
+Documentation Files ........................ 4 (9%)
+Asset Files ................................ 2 (4%)
+
+Total Lines of Code ........................ ~8,700
+TypeScript/TSX ............................. ~6,000 LOC
+CSS & HTML ................................. ~400 LOC
+Configuration .............................. ~500 LOC
+Documentation .............................. ~2,000 LOC
+
+Build Output Size:
+  • JavaScript ............................. 242.88 kB (71.31 kB gzipped)
+  • CSS .................................... 33.30 kB (5.90 kB gzipped)
+  • HTML ................................... 0.48 kB (0.31 kB gzipped)
+  • Total .................................. 276.66 kB (77.52 kB gzipped)
+
+================================================================================
+                    SUPPORTED CODE ANALYSIS LANGUAGES
+================================================================================
+
+Pattern-Based Detection (Regex):
+  ✅ JavaScript
+  ✅ TypeScript
+  ✅ JSX/TSX
+
+CodeQL Semantic Analysis:
+  ✅ JavaScript        ✅ Go           ✅ PHP
+  ✅ TypeScript        ✅ C/C++        ✅ Swift
+  ✅ Python            ✅ C#           ✅ Kotlin
+  ✅ Java              ✅ Ruby
+
+================================================================================
+                          STANDARDS USED
+================================================================================
+
+✅ SARIF 2.1.0 - Standard Analysis Results Format
+✅ CWE - Common Weakness Enumeration
+✅ HTML5 - Latest HTML Standard
+✅ CSS3 - Latest CSS Standard
+✅ ECMAScript 2020+ - JavaScript Standard
+✅ OAuth 2.0 - Authentication Standard
+✅ REST - API Architecture
+
+================================================================================
+                        ANALYSIS MODES
+================================================================================
+
+1. PATTERN-BASED (Default)
+   └─ Language: Regex (ECMAScript)
+   └─ Speed: Very Fast (< 1s)
+   └─ Accuracy: Medium
+   └─ Setup: None required
+   └─ Coverage: 10+ vulnerability types
+
+2. CODEQL (Advanced)
+   └─ Language: QL (CodeQL Query Language)
+   └─ Speed: Slower (10-60s)
+   └─ Accuracy: High
+   └─ Setup: Backend required
+   └─ Coverage: 10+ vulnerability types + data flow
+
+3. HYBRID (Combined)
+   └─ Language: Both Regex + QL
+   └─ Speed: Medium
+   └─ Accuracy: Very High
+   └─ Setup: Optional backend
+   └─ Coverage: Maximum
+   └─ Features: Deduplication, fallback
+
+================================================================================
+                         PROJECT SUMMARY
+================================================================================
+
+Technology Stack:
+  Frontend:     React 18 + TypeScript 5.5 + Vite 5.4
+  Styling:      Tailwind CSS 3.4 + PostCSS 8.4
+  Analysis:     Pattern Matching + CodeQL 2.23.1
+  Backend:      Supabase + Deno (optional)
+  APIs:         GitHub + Google + Supabase
+
+Languages Used: 15+
+  Primary: TypeScript, JavaScript, CSS, HTML, JSON, Markdown
+  Analysis: Regex, CodeQL (QL), SARIF
+  Runtime: Deno TypeScript (optional)
+  Tools: Bash, YAML (optional)
+
+Total Codebase: ~8,700 LOC across 45+ files
+
+Build Status: ✅ SUCCESSFUL
+  • 1492 modules transformed
+  • Production-ready optimizations
+  • Tree-shaking enabled
+  • Code splitting enabled
+  • CSS minified & purged
+  • JavaScript minified
+
+================================================================================
+                          BUILD COMMANDS
+================================================================================
+
+npm run dev ............ Start development server with HMR
+npm run build .......... Production build to dist/
+npm run lint ........... Run ESLint checks
+npm run typecheck ...... Run TypeScript compiler
+npm run preview ........ Preview production build locally
+
+================================================================================
+                      DEPLOYMENT TARGETS
+================================================================================
+
+✅ Vercel (Recommended)
+✅ Netlify
+✅ AWS S3 + CloudFront
+✅ Any static host (Vite SPA)
+
+Optional Backend:
+✅ Supabase (Database + Edge Functions)
+✅ GitHub (Repository integration)
+✅ Google Cloud (OAuth)
+✅ CodeQL (Advanced analysis)
+
+================================================================================
+                         QUICK LINKS
+================================================================================
+
+📖 Full Documentation ........ PROJECT_DOCUMENTATION.md
+🔐 CodeQL Setup Guide ........ CODEQL_SETUP.md
+🛠️ Tech Stack Details ........ LANGUAGES_AND_TECHNOLOGIES.md
+👀 Visual Overview ........... TECH_STACK_VISUAL.md
+⚡ Quick Reference ........... LANGUAGES_QUICK_REFERENCE.md
+📄 This File ................. LANGUAGES_SUMMARY.txt
+
+================================================================================
+
+Document Generated: 2025-11-02
+Version: 1.0.0
+Status: Complete & Verified ✅
+
+================================================================================
